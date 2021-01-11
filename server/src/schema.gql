@@ -1,0 +1,49 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Webinar {
+  id: ID!
+  title: String!
+  description: String
+  presentedBy: String
+  startTime: DateTime!
+  endTime: DateTime
+  concurrentViewers: Float
+  stream: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  webinars: [Webinar!]!
+  webinar(id: Int!): Webinar!
+}
+
+type Mutation {
+  createWebinar(createWebinarInput: CreateWebinarInput!): Webinar!
+  updateWebinar(updateWebinarInput: UpdateWebinarInput!): Webinar!
+  removeWebinar(id: Int!): Webinar!
+}
+
+input CreateWebinarInput {
+  title: String!
+  description: String
+  presentedBy: String
+  startTime: DateTime!
+  endTime: DateTime
+  concurrentViewers: Float
+}
+
+input UpdateWebinarInput {
+  title: String
+  description: String
+  presentedBy: String
+  startTime: DateTime
+  endTime: DateTime
+  concurrentViewers: Float
+  id: Int!
+}
