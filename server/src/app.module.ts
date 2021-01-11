@@ -4,6 +4,7 @@ import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { WebinarsModule } from './webinars/webinars.module';
+import { PrismaService } from './prisma/prisma.service';
 
 @Module({
   imports: [
@@ -14,6 +15,6 @@ import { WebinarsModule } from './webinars/webinars.module';
     WebinarsModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, PrismaService],
 })
 export class AppModule {}

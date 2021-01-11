@@ -1,28 +1,40 @@
 import { Injectable } from '@nestjs/common';
+import { PrismaService } from '../prisma/prisma.service';
 import { CreateWebinarInput } from './dto/create-webinar.input';
 import { UpdateWebinarInput } from './dto/update-webinar.input';
 
 @Injectable()
 export class WebinarsService {
+  constructor(private prisma: PrismaService) {}
+
   create(createWebinarInput: CreateWebinarInput) {
-    console.log(createWebinarInput);
-    return 'This action adds a new webinar';
+    return this.prisma.webinar.create({
+      data: createWebinarInput,
+    });
   }
 
   findAll() {
-    return `This action returns all webinars`;
+    return this.prisma.webinar.findMany();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} webinar`;
+    return this.prisma.webinar.findUnique({
+      where: {
+        id,
+      },
+    });
   }
 
   update(id: number, updateWebinarInput: UpdateWebinarInput) {
-    console.log(updateWebinarInput);
-    return `This action updates a #${id} webinar`;
+    return this.prisma.webinar.update({
+      where: { id },
+      data: updateWebinarInput,
+    });
   }
 
   remove(id: number) {
-    return `This action removes a #${id} webinar`;
+    return this.prisma.webinar.delete({
+      where: { id },
+    });
   }
 }

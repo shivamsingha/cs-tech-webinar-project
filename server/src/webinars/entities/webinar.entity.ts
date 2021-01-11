@@ -5,7 +5,7 @@ export class Webinar {
   @Field(() => ID)
   id: number;
   title: string;
-  description?: string;
+  desc?: string;
   presentedBy?: string;
   startTime: Date;
   endTime?: Date;

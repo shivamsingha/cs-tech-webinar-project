@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Webinar {
+  id          Int           @id @default(autoincrement())
+  title       String
+  desc        String?
+  presentedBy String?
+  startTime   DateTime
+  endTime     DateTime?
+  viewers     Viewer[]
+  comments    LiveComment[]
+  stream      String?
+}
+
+model Viewer {
+  id          Int           @id @default(autoincrement())
+  name        String?
+  email       String
+  phone       String?
+  watchTime   Int           @default(0)
+  Webinar     Webinar?      @relation(fields: [webinarId], references: [id])
+  webinarId   Int?
+  LiveComment LiveComment[]
+}
+
+model LiveComment {
+  id          Int      @id @default(autoincrement())
+  viewer      Viewer   @relation(fields: [viewerId], references: [id])
+  comment     String
+  commentedAt Int
+  Webinar     Webinar? @relation(fields: [webinarId], references: [id])
+  webinarId   Int?
+  viewerId    Int
+}
+
+model Admin {
+  id       Int    @id @default(autoincrement())
+  name     String
+  email    String
+  password String
+}

@@ -7,7 +7,7 @@ export class CreateWebinarInput {
 
   @MaxLength(320)
   @IsOptional()
-  description?: string;
+  desc?: string;
 
   @IsOptional()
   presentedBy?: string;

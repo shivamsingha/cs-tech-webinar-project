@@ -5,7 +5,7 @@
 type Webinar {
   id: ID!
   title: String!
-  description: String
+  desc: String
   presentedBy: String
   startTime: DateTime!
   endTime: DateTime
@@ -31,7 +31,7 @@ type Mutation {
 
 input CreateWebinarInput {
   title: String!
-  description: String
+  desc: String
   presentedBy: String
   startTime: DateTime!
   endTime: DateTime
@@ -40,7 +40,7 @@ input CreateWebinarInput {
 
 input UpdateWebinarInput {
   title: String
-  description: String
+  desc: String
   presentedBy: String
   startTime: DateTime
   endTime: DateTime
