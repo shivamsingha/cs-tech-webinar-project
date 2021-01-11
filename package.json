@@ -1,0 +1,28 @@
+{
+  "name": "cs-tech-webinar",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/shivamsingha/cs-tech-webinar-project.git",
+  "author": "shivam <shivamgit@pm.me>",
+  "license": "Unlicense",
+  "private": true,
+  "scripts": {
+    "lint": "lerna run lint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint",
+      "pre-push": "yarn lint"
+    }
+  },
+  "workspaces": {
+    "packages": [
+      "webFrontend",
+      "server"
+    ]
+  },
+  "devDependencies": {
+    "husky": "^4.3.7",
+    "lerna": "^3.22.1"
+  }
+}
