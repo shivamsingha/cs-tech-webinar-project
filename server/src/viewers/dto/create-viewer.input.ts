@@ -11,5 +11,5 @@ export class CreateViewerInput {
 
   @IsOptional()
   @IsPhoneNumber(null)
-  phone: string;
+  phone?: string;
 }

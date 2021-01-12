@@ -2,8 +2,8 @@
   "name": "@cs-tech-webinar/server",
   "private": true,
   "version": "1.0.0",
-  "description": "Nest TypeScript starter repository",
-  "license": "MIT",
+  "description": "webinar server",
+  "license": "Unlicense",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
